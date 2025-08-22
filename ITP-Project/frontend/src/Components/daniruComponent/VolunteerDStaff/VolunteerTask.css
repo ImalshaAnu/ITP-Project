@@ -1,0 +1,197 @@
+/* ===== Volunteer Task Dashboard Specific Styles ===== */
+.volunteertask-app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.volunteertask-main-content {
+  width: 100%;
+  margin-top: 60px;
+  padding: 0;
+  flex: 1;
+}
+
+.volunteertask-content-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.volunteertask-glass-bg {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 12px;
+  padding: 30px;
+  margin: 20px 0;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.volunteertask-greeting-row {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding: 10px 0 0;
+}
+
+.volunteertask-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin: 0 0 5px;
+  line-height: 1.2;
+}
+
+.volunteertask-blue-text {
+  color: #3498db;
+}
+
+.volunteertask-divider {
+  height: 1px;
+  background: linear-gradient(90deg, 
+    rgba(52,152,219,0) 0%, 
+    rgba(52,152,219,0.3) 50%, 
+    rgba(52,152,219,0) 100%);
+  margin: 30px 0;
+  border: none;
+}
+
+.volunteertask-performance-section {
+  margin: 30px 0 0;
+}
+
+.volunteertask-section-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #2c3e50;
+  margin: 0 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.volunteertask-performance-cards {
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+
+.volunteertask-performance-card {
+  flex: 1;
+  min-width: 250px;
+  max-width: 350px;
+  background: linear-gradient(135deg, #3498db, #6dd5fa);
+  color: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+.volunteertask-performance-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+.volunteertask-percentage {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-top: 15px;
+  display: block;
+}
+
+/* ===== Volunteer Task Icons ===== */
+.volunteertask-icon-blue {
+  color: #3498db;
+  font-size: 1.5rem;
+}
+
+.volunteertask-icon-green {
+  color: #2ecc71;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.volunteertask-icon-orange {
+  color: #f39c12;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+/* ===== General Styles (Can be used across application) ===== */
+/* Navbar - General */
+.volunteer-nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 60px;
+  background: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+}
+
+/* Responsive Adjustments - General */
+@media (max-width: 992px) {
+  .volunteertask-glass-bg {
+    padding: 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .volunteer-nav {
+    height: 55px;
+  }
+  
+  .volunteertask-main-content {
+    margin-top: 55px;
+  }
+  
+  .volunteertask-title {
+    font-size: 1.8rem;
+  }
+  
+  .volunteertask-section-title {
+    font-size: 1.5rem;
+  }
+  
+  .volunteertask-performance-card {
+    min-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .volunteer-nav {
+    height: 50px;
+  }
+  
+  .volunteertask-main-content {
+    margin-top: 50px;
+  }
+  
+  .volunteertask-glass-bg {
+    padding: 20px 15px;
+    border-radius: 0;
+    margin: 0;
+  }
+  
+  .volunteertask-title {
+    font-size: 1.6rem;
+  }
+  
+  .volunteertask-performance-cards {
+    gap: 15px;
+  }
+}

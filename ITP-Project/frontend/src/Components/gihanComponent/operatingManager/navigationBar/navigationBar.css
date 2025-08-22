@@ -1,0 +1,130 @@
+.operating-manager-sidebar {
+    width: 250px;
+    height: 100vh;
+    background-color: #2c3e50;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    left: 0;
+    top: 0;
+  }
+  
+  .sidebar-header {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .sidebar-logo {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 0px;
+  }
+  
+  .organization-name-opm {
+    margin: 0 !important;
+    font-size: 1.4rem !important;
+    padding-top: 0px !important;
+    margin-top: 0px !important;
+    color: #ffffff;
+  }
+  
+  .sidebar-divider {
+    width: 80%;
+    margin: 10px auto;
+    border-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .sidebar-nav li {
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  .nav-text{
+     padding-bottom: 5px;
+  }
+  .sidebar-nav li:hover {
+    background-color: #34495e;
+  }
+  
+  .nav-icon {
+    margin-right: 10px;
+  }
+  
+  .sidebar-bottom {
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .profile-section-op {
+  text-decoration: none !important;
+  display: flex !important;
+  align-items: center !important;
+  padding: 15px !important;
+  cursor: pointer !important;
+  transition: background-color 0.3s !important;
+}
+
+.profile-section-op:link,
+.profile-section-op:visited,
+.profile-section-op:active,
+.profile-section-op:focus,
+.profile-section-op:hover {
+  text-decoration: none !important;
+  color: inherit !important;
+}
+
+.profile-section-op:hover {
+  background-color: #34495e !important;
+}
+
+  
+  .profile-avatar-op {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50% !important;
+    margin-right: 10px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background-color: rgba(255, 255, 255, 0.1) !important;
+  }
+  
+  .profile-info-op h4 {
+    margin: 0 !important;
+    font-size: 0.9rem !important;
+  }
+  
+  .profile-info-op p {
+    margin: 0 !important;
+    font-size: 0.8rem !important;
+    color: #bdc3c7 !important;
+  }
+  
+  .sign-out {
+    margin-right: 10px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .sign-out:hover {
+    background-color: #e74c3c;
+  }
+  
+  .sign-out span {
+    margin-left: 10px;
+  }
+
+  

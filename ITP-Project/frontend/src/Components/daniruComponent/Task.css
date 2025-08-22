@@ -1,0 +1,215 @@
+/* Main Layout */
+.task-app-container {
+  display: flex;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
+}
+
+/* Task Container */
+.task-container {
+  margin-left: 260px;
+  padding: 40px 32px 32px 32px;
+  width: calc(100% - 260px);
+  min-height: 100vh;
+  background: rgba(255,255,255,0.85);
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(44, 62, 80, 0.10);
+  transition: all 0.3s cubic-bezier(.4,2,.3,1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  animation: fadeInTaskContainer 0.7s cubic-bezier(.4,2,.3,1);
+}
+@keyframes fadeInTaskContainer {
+  from { opacity: 0; transform: translateY(24px) scale(0.98); }
+  to { opacity: 1; transform: none; }
+}
+
+/* Modern Heading with Accent */
+.task-heading-modern {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  text-align: center;
+  letter-spacing: 1px;
+  position: relative;
+}
+.task-heading-modern::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: #1abc9c;
+  border-radius: 2px;
+  margin: 14px auto 0 auto;
+}
+
+.task-header h2 {
+  font-size: 1.15rem;
+  color: #7f8c8d;
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+
+/* Modern Create Task Button */
+.create-task-button {
+  background: linear-gradient(90deg, #1abc9c, #16a085);
+  color: white;
+  padding: 16px 36px;
+  border-radius: 50px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 4px 16px #1abc9c22;
+  transition: background 0.3s, transform 0.2s;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+.create-task-button:hover {
+  background: linear-gradient(90deg, #16a085, #1abc9c);
+  transform: scale(1.05);
+}
+
+/* Modern Search Container */
+.task-search-container {
+  display: flex;
+  align-items: center;
+  background: rgba(255,255,255,0.85);
+  border-radius: 12px;
+  padding: 12px 20px;
+  box-shadow: 0 2px 8px #1abc9c22;
+  border: none;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto 24px auto;
+}
+.task-search-icon {
+  color: #1abc9c;
+  font-size: 1.2rem;
+  margin-right: 10px;
+}
+.task-search-input {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  font-size: 1rem;
+  outline: none;
+  min-width: 180px;
+}
+
+/* Modern Sort Controls */
+.task-sort-container {
+  display: flex;
+  gap: 12px;
+  margin: 20px 0 24px 0;
+  padding: 0 20px;
+  justify-content: center;
+}
+.task-sort-select {
+  padding: 12px 18px;
+  border-radius: 10px;
+  border: none;
+  background: rgba(255,255,255,0.85);
+  box-shadow: 0 2px 8px #1abc9c22;
+  font-size: 1rem;
+  outline: none;
+  transition: box-shadow 0.2s;
+}
+.task-sort-select:focus {
+  box-shadow: 0 0 0 2px #1abc9c55;
+}
+.task-sort-order-button {
+  background: linear-gradient(90deg, #3498db, #5dade2);
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 12px 24px;
+  box-shadow: 0 2px 8px #3498db22;
+  transition: background 0.2s, transform 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.task-sort-order-button:hover {
+  background: linear-gradient(90deg, #5dade2, #3498db);
+  transform: scale(1.05);
+}
+
+/* Task Grid Modern */
+.task-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 28px;
+  padding: 20px 0;
+}
+
+/* No Tasks/No Results Modern */
+.no-tasks, .no-results {
+  text-align: center;
+  font-size: 1.15rem;
+  color: #7f8c8d;
+  font-weight: 600;
+  padding: 32px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+@media (max-width: 900px) {
+  .task-container {
+    margin-left: 0;
+    width: 100%;
+    padding: 18px 4vw 24px 4vw;
+    border-radius: 14px;
+  }
+  .task-search-container {
+    width: 100%;
+    max-width: 100%;
+  }
+  .task-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 14px;
+  }
+}
+
+/* Download Report Button */
+.task-download-report-button {
+  background-color: #1abc9c;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.task-download-report-button:hover {
+  background-color: #16a085;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .task-container {
+      margin-left: 0;
+      width: 100%;
+      padding: 20px;
+  }
+
+  .task-search-container {
+      width: 90%;
+  }
+
+  .task-grid {
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+}

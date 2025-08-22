@@ -1,0 +1,400 @@
+/* nav.css - with donor-nav prefix */
+
+body {
+  padding-top: 0 !important;
+}
+
+.donor-nav-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 20px;
+  background-color: #000;
+  color: white;
+  position: fixed;  
+  top: 0;         
+  left: 0;
+  width: 99%;     
+  z-index: 1000;   
+}
+
+.donor-nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); 
+  z-index: 900;
+}
+
+.donor-nav-side-nav {
+  position: relative;
+}
+
+.donor-nav-hamburger-menu {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.donor-nav-side-nav-content {
+    position: fixed;
+    top: 0;
+    left: 0px;
+    width: 250px;
+    height: 100vh;
+    background-color: #222;
+    padding: 20px;
+    border-radius: 0px 20px 0px 0px;
+    box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.5);
+    z-index: 1500;
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .donor-nav-profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .donor-nav-profile-photo-cover {
+    margin-left: 27px;
+    margin-right: 15px;
+    margin-top: 40px;
+    margin-bottom: 0;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center !important;
+    justify-content: center;
+    background-color: white; 
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.3); 
+  }
+
+  
+.donor-nav-hamburger-menu {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .donor-nav-hamburger-menu:hover {
+    transform: scale(1.2);
+  }
+
+  .donor-nav-close-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .donor-nav-side-nav-links {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    width: 100%;
+  }
+  
+  .donor-nav-side-nav-links li {
+    padding: 10px 20px;
+    transition: background 0.3s ease-in-out;
+    border-radius: 5px;
+  }
+  
+  .donor-nav-side-nav-links li:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+  
+  .donor-nav-profile-photo {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    align-items: center !important;
+  }
+  
+  .donor-nav-profile-info {
+    text-align: center;
+    margin-top: 0; 
+    padding: 0; 
+  }
+  
+  
+  .donor-nav-donor-name {
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+    margin: 0; 
+    padding: 2px; 
+    line-height: 1;
+    text-align: center;
+  }
+  
+  .donor-nav-donor-email {
+    font-size: 12px;
+    color: #aaa;
+    margin: 0; 
+    padding: 2px; 
+    line-height: 1;
+    text-align: center;
+  }
+  
+  .donor-nav-separator {
+    width: 90%;
+    height: 3px;
+    background-color: #555;
+    margin: 15px 0;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+
+  .donor-nav-side-nav-links {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    width: 100%;
+  }
+  
+  .donor-nav-side-nav-links li {
+    padding: 10px 20px;
+  }
+  
+  .donor-nav-side-nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+    transition: color 0.3s ease-in-out;
+  }
+
+
+  .donor-nav-side-nav-links a:hover {
+    color: #2aaaef; 
+  }
+  
+  .donor-nav-side-nav-links .donor-nav-sign-out-btn {
+    width: 100%;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 18px;
+    text-align: left;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s, color 0.3s;
+  }
+  .donor-nav-side-nav-links .donor-nav-sign-out-btn:hover {
+    color: red;
+  }
+
+  .donor-nav-logo a {
+  color: white;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.donor-nav-logo-container {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    gap: 1px; 
+  }
+  
+  .donor-nav-logo-text {
+    padding-left:0px;
+    display: flex;
+    text-decoration: none;
+    flex-direction: column;
+    line-height: 0.9;
+    margin-left: -25px; 
+  }
+  
+  .donor-nav-top-text{
+    font-size: 35px;
+    font-weight: bold;
+    color: rgb(246, 246, 246);
+    text-decoration: none;
+    padding-left:0px;
+  }
+
+  .donor-nav-bottom-text{
+    font-size: 35px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    padding-left:60px;
+    text-decoration: none;
+  }
+
+ 
+  .donor-nav-lk-text {
+    font-size: 24px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+   }
+  
+  
+  .donor-nav-logo-img {
+    width: 80px; 
+    height: auto;
+  }
+  
+
+.donor-nav-nav-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.donor-nav-nav-links a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 20px; 
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+  }
+
+.donor-nav-nav-links a:hover {
+  color: #595d60;
+}
+
+.donor-nav-chatbot-icon img,
+.donor-nav-messages-icon img,
+.donor-nav-notification-icon img,
+.donor-nav-close-icon img,
+.donor-nav-search-icon img {
+  transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+}
+
+.donor-nav-chatbot-icon img:hover,
+.donor-nav-messages-icon img:hover,
+.donor-nav-notification-icon img:hover,
+.donor-nav-nav-search-icon:hover {
+  transform: scale(1.2); 
+  filter: invert(0.7); 
+}
+
+
+.donor-nav-close-icon img:hover {
+  transform: rotate(90deg); 
+}
+
+.donor-nav-nav-search-container {
+  display: flex;
+  align-items: center;
+  background: white;
+  border-radius: 15px;
+  padding: 5px 10px;
+  width: 230px;
+  height: 40px;
+  margin-right: 20px;
+}
+
+.donor-nav-nav-search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 3px;
+  margin-right: 5px;
+  font-size: 14px;
+  background: transparent;
+}
+
+.donor-nav-nav-search-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.donor-nav-nav-search-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+
+.donor-nav-ai-chatbot, .donor-nav-communicate, .donor-nav-notifications {
+  margin-left: 20px;
+}
+
+
+.donor-nav-chatbot-icon, .donor-nav-messages-icon, .donor-nav-notification-icon, .donor-nav-close-icon,.donor-nav-search-icon {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    right: 10px;
+  }
+  
+  .donor-nav-messages-icon img,
+  .donor-nav-notification-icon img{
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    filter: invert(1); 
+    margin-right: 25px;
+}
+
+.donor-nav-notification-icon {
+  position: relative;
+}
+
+.donor-nav-notification-badge {
+  position: absolute;
+  top: -8px;
+  right: 4px; /* add right margin */
+  background: red;
+  border-radius: 50%;
+  width: 13px; /* smaller width */
+  height: 15px; /* smaller height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  font-weight: bold;
+  font-size: 8px; /* slightly larger for readability */
+  border: 2px solid white;
+  z-index: 2;
+  pointer-events: none;
+}
+
+  .donor-nav-chatbot-icon img{
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    filter: invert(1); 
+    margin-left: 50px;
+    margin-right: 12px;
+    margin-top: 5px;
+  }
+
+  .donor-nav-close-icon img{
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+  }
+
+  .notification-donor-clear:hover{
+      background:red !important;
+       transition:'background 0.2s' !important
+  }

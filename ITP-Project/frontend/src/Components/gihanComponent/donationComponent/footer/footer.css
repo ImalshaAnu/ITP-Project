@@ -1,0 +1,264 @@
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.donor-foot-page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.donor-foot-content-wrap {
+  flex: 1 0 auto;
+}
+
+.donor-foot-footer {
+  background-color: #2c3e50;
+  color: #ffffff;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  width: 100%;
+  flex-shrink: 0;
+  margin-top: auto;
+}
+
+.donor-foot-footer-first-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.donor-foot-platform-and-newsletter {
+  flex: 1 1 40%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.donor-foot-platform-info {
+  text-align: left;
+}
+
+.donor-foot-platform-info .donor-foot-logo-container img {
+  width: 80px;
+  height: auto;
+}
+
+.donor-foot-platform-info .donor-foot-tagline {
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.donor-foot-newsletter-section {
+  text-align: left;
+}
+
+.donor-foot-newsletter-section h2 {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.donor-foot-newsletter-section p {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.donor-foot-newsletter-form {
+  display: flex;
+  gap: 10px;
+}
+
+.donor-foot-newsletter-form input {
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  max-width: 250px;
+}
+
+.donor-foot-newsletter-form button {
+  padding: 8px 10px;
+  background-color: #e67e22;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 16%;
+  white-space: nowrap;
+}
+
+.donor-foot-newsletter-form button:hover {
+  background-color: #d35400;
+}
+
+.donor-foot-right-sections {
+  padding-right: 10px;
+  flex: 1 1 58%;
+  display: flex;
+  justify-content: space-between;
+  gap: 0px;
+}
+
+.donor-foot-about-us, .donor-foot-donor-resources, .donor-foot-contact-us {
+  flex: 1 1 30%;
+  text-align: left;
+}
+
+.donor-foot-contact-us {
+  margin-right: 15px;
+}
+
+.donor-foot-about-us h3,
+.donor-foot-donor-resources h3,
+.donor-foot-contact-us h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.donor-foot-about-us ul,
+.donor-foot-donor-resources ul,
+.donor-foot-contact-us ul {
+  list-style: none;
+  padding: 0;
+}
+
+.donor-foot-about-us ul li,
+.donor-foot-donor-resources ul li {
+  margin-bottom: 8px;
+}
+
+.donor-foot-contact-us ul li {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #888;
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+
+.donor-foot-about-us ul li a,
+.donor-foot-donor-resources ul li a {
+  color: #888;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.donor-foot-about-us ul li a:hover,
+.donor-foot-donor-resources ul li a:hover {
+  text-decoration: underline;
+}
+
+.donor-foot-contact-us ul li img {
+  width: 22px;
+  height: 22px;
+  padding-top: 2px;
+  filter: brightness(0) invert(1);
+  vertical-align: middle;
+}
+
+.donor-foot-horizontal-separator {
+  width: 100%;
+  height: 1px;
+  background-color: #444;
+  margin: 10px 0;
+}
+
+.donor-foot-footer-second-section {
+  margin-bottom: -10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.donor-foot-social-media {
+  flex: 1 1 30%;
+  text-align: left;
+}
+
+.donor-foot-social-icons {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.donor-foot-social-icons .donor-foot-facebook img {
+  width: 34px;
+  height: 34px;
+  margin-bottom: 2px;
+}
+
+.donor-foot-social-icons .donor-foot-twitter-x img {
+  width: 51px;
+  height: 40px;
+  padding-left: 7px;
+}
+
+.donor-foot-social-icons .donor-foot-insta img {
+  width: 50px;
+  height: 55px;
+}
+
+.donor-foot-social-icons .donor-foot-linkedin img {
+  width: 58px;
+  height: 58px;
+}
+
+.donor-foot-legal-compliance {
+  flex: 1 1 40%;
+  text-align: center;
+}
+
+.donor-foot-legal-compliance .donor-foot-copyright {
+  font-size: 12px;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.donor-foot-legal-links {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.donor-foot-legal-links a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+.donor-foot-legal-links a:hover {
+  text-decoration: underline;
+}
+
+.donor-foot-partner-logos {
+  flex: 1 1 30%;
+  text-align: right;
+}
+
+.donor-foot-logos {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.donor-foot-logos img:nth-child(1),
+.donor-foot-logos img:nth-child(2),
+.donor-foot-logos img:nth-child(3) {
+  width: 50px;
+  height: auto;
+}

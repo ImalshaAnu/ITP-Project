@@ -1,0 +1,334 @@
+body {
+  background: #dce9e4 !important;
+}
+
+.DFund-payment-form-container {
+  max-width: 600px;
+  margin: 9rem auto 2rem auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.DFund-progress-bar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.DFund-progress-bar::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: #e0e0e0;
+  z-index: 1;
+}
+
+.DFund-progress-step {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: #e0e0e0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+  color: #666;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.DFund-progress-step.active {
+  background: #195a5c;
+  color: white;
+}
+
+.DFund-step {
+  margin-bottom: 2rem;
+}
+
+.DFund-step h2 {
+  color: #333;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.DFund-amount-options {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.DFund-amount-btn {
+  padding: 1rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+.DFund-amount-btn:hover {
+  border-color: #195a5c;
+}
+
+.DFund-amount-btn.selected {
+  border-color: #195a5c;
+  background: #195a5c;
+  color: white;
+}
+
+.DFund-custom-amount {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.DFund-custom-amount input {
+  width: 60%;
+  min-width: 200px;
+  max-width: 300px;
+  border: 2px solid #195a5c;
+  box-sizing: border-box;
+  font-size: 0.92rem;
+}
+
+.DFund-form-group {
+  margin-bottom: 1rem;
+}
+
+.DFund-form-group input,
+.DFund-form-group textarea {
+  width: 100%;
+  padding: 0.8rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.DFund-form-group input:focus,
+.DFund-form-group textarea:focus {
+  border-color: #195a5c;
+  outline: none;
+}
+
+.DFund-form-group textarea {
+  min-height: 100px;
+  resize: vertical;
+  font-size: 1rem;
+}
+
+.DFund-payment-methods {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.DFund-payment-method {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.DFund-payment-method:hover {
+  border-color: #195a5c;
+}
+
+.DFund-payment-method input[type="radio"] {
+  width: 20px;
+  height: 20px;
+}
+
+.DFund-card-details,
+.DFund-bank-details {
+  margin-top: 1rem;
+  padding: 1rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+}
+
+.DFund-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.DFund-confirmation-details {
+  background: #e6f0ea;
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+.DFund-confirmation-details ul {
+  list-style: none;
+  padding: 0;
+}
+
+.DFund-confirmation-details li {
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  background: white;
+  border-radius: 4px;
+}
+
+.DFund-form-navigation {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  gap: 1rem;
+}
+
+.DFund-btn-prev,
+.DFund-btn-next,
+.DFund-btn-submit {
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.DFund-btn-prev {
+  background: #e0e0e0;
+  color: #333;
+}
+
+.DFund-btn-next,
+.DFund-btn-submit {
+  background: #195a5c !important;
+  color: white !important;
+  border: none;
+}
+
+.DFund-btn-submit:hover {
+  background: #14494a !important;
+}
+
+.DFund-btn-prev:hover {
+  background: #d0d0d0;
+}
+
+.DFund-btn-next:hover {
+  background: #14494a;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .DFund-payment-form-container {
+    margin: 1rem;
+    padding: 1rem;
+  }
+
+  .DFund-amount-options {
+    grid-template-columns: 1fr;
+  }
+
+  .DFund-form-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+.DFund-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.DFund-modal-content {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 15px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+  position: relative;
+  animation: modalFadeIn 0.3s ease-out;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.DFund-modal-content h2 {
+  color: #195a5c;
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.DFund-modal-content p {
+  color: #333;
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+.DFund-email-status {
+  color: #195a5c !important;
+  font-weight: 500;
+  margin: 1rem 0;
+  padding: 0.8rem;
+  background: #e6f0ea;
+  border-radius: 8px;
+  font-size: 1.1rem !important;
+}
+
+.DFund-btn-close {
+  background: #195a5c;
+  color: white;
+  border: none;
+  padding: 1rem 2.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+}
+
+.DFund-btn-close:hover {
+  background: #134445;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Only the custom amount input in step 1 should be smaller */
+.DFund-custom-amount input {
+  font-size: 0.92rem;
+} 

@@ -1,0 +1,426 @@
+.donation-request-background {
+  background-color: #dce9e4;
+}
+
+.donation-request-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background-color: #dce9e4;
+  min-height: 100vh;
+  font-size: 18px; 
+}
+
+.donation-request-title {
+  color: #1d2154;
+  margin: 0 0 20px 0;
+  font-size: 32px;
+  font-weight: 600;
+  text-align: center;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #2196F3;
+}
+
+.donation-request-description {
+  font-size: 1.2rem;
+  color: #474b74;
+  font-style: italic;
+  max-width: 600px;
+  margin: 12px auto 24px auto;
+  line-height: 1.6;
+  text-align: center;
+  font-size: 0.95rem;
+}
+
+.donation-request-form {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #adc6bc;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  padding: 25px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.donation-request-field-group {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.donation-request-label {
+  display: block;
+  color: #2d2b2b;
+  font-size: 18px;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.donation-request-input,
+.donation-request-select,
+.donation-request-textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  background-color: #f8f9fa;
+}
+
+.donation-request-input:focus,
+.donation-request-select:focus,
+.donation-request-textarea:focus {
+  border-color: #2196F3;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.1);
+  background-color: white;
+}html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.Freq-donor-foot-page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.Freq-donor-foot-content-wrap {
+  flex: 1 0 auto;
+}
+
+.Freq-donor-foot-footer {
+  background-color: #2c3e50;
+  color: #ffffff;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  width: 100%;
+  flex-shrink: 0;
+  margin-top: auto;
+}
+
+.Freq-donor-foot-footer-first-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.Freq-donor-foot-platform-and-newsletter {
+  flex: 1 1 40%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.Freq-donor-foot-platform-info {
+  text-align: left;
+}
+
+.Freq-donor-foot-platform-info .Freq-donor-foot-logo-container img {
+  width: 80px;
+  height: auto;
+}
+
+.Freq-donor-foot-platform-info .Freq-donor-foot-tagline {
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+.Freq-donor-foot-newsletter-section {
+  text-align: left;
+}
+
+.Freq-donor-foot-newsletter-section h2 {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.Freq-donor-foot-newsletter-section p {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.Freq-donor-foot-newsletter-form {
+  display: flex;
+  gap: 10px;
+}
+
+.Freq-donor-foot-newsletter-form input {
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  max-width: 250px;
+}
+
+.Freq-donor-foot-newsletter-form button {
+  padding: 8px 10px;
+  background-color: #e67e22;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 16%;
+  white-space: nowrap;
+}
+
+.Freq-donor-foot-newsletter-form button:hover {
+  background-color: #d35400;
+}
+
+.Freq-donor-foot-right-sections {
+  padding-right: 10px;
+  flex: 1 1 58%;
+  display: flex;
+  justify-content: space-between;
+  gap: 0px;
+}
+
+.Freq-donor-foot-about-us, .Freq-donor-foot-donor-resources, .Freq-donor-foot-contact-us {
+  flex: 1 1 30%;
+  text-align: left;
+}
+
+.Freq-donor-foot-contact-us {
+  margin-right: 15px;
+}
+
+.Freq-donor-foot-about-us h3,
+.Freq-donor-foot-donor-resources h3,
+.Freq-donor-foot-contact-us h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.Freq-donor-foot-about-us ul,
+.Freq-donor-foot-donor-resources ul,
+.Freq-donor-foot-contact-us ul {
+  list-style: none;
+  padding: 0;
+}
+
+.Freq-donor-foot-about-us ul li,
+.Freq-donor-foot-donor-resources ul li {
+  margin-bottom: 8px;
+}
+
+.Freq-donor-foot-contact-us ul li {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #888;
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+
+.Freq-donor-foot-about-us ul li a,
+.Freq-donor-foot-donor-resources ul li a {
+  color: #888;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.Freq-donor-foot-about-us ul li a:hover,
+.Freq-donor-foot-donor-resources ul li a:hover {
+  text-decoration: underline;
+}
+
+.Freq-donor-foot-contact-us ul li img {
+  width: 22px;
+  height: 22px;
+  padding-top: 2px;
+  filter: brightness(0) invert(1);
+  vertical-align: middle;
+}
+
+.Freq-donor-foot-horizontal-separator {
+  width: 100%;
+  height: 1px;
+  background-color: #444;
+  margin: 10px 0;
+}
+
+.Freq-donor-foot-footer-second-section {
+  margin-bottom: -10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.Freq-donor-foot-social-media {
+  flex: 1 1 30%;
+  text-align: left;
+}
+
+.Freq-donor-foot-social-icons {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.Freq-donor-foot-social-icons .Freq-donor-foot-facebook img {
+  width: 34px;
+  height: 34px;
+  margin-bottom: 2px;
+}
+
+.Freq-donor-foot-social-icons .Freq-donor-foot-twitter-x img {
+  width: 51px;
+  height: 40px;
+  padding-left: 7px;
+}
+
+.Freq-donor-foot-social-icons .Freq-donor-foot-insta img {
+  width: 50px;
+  height: 55px;
+}
+
+.Freq-donor-foot-social-icons .Freq-donor-foot-linkedin img {
+  width: 58px;
+  height: 58px;
+}
+
+.Freq-donor-foot-legal-compliance {
+  flex: 1 1 40%;
+  text-align: center;
+}
+
+.Freq-donor-foot-legal-compliance .Freq-donor-foot-copyright {
+  font-size: 12px;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.Freq-donor-foot-legal-links {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.Freq-donor-foot-legal-links a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+.Freq-donor-foot-legal-links a:hover {
+  text-decoration: underline;
+}
+
+.Freq-donor-foot-partner-logos {
+  flex: 1 1 30%;
+  text-align: right;
+}
+
+.Freq-donor-foot-logos {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.Freq-donor-foot-logos img:nth-child(1),
+.Freq-donor-foot-logos img:nth-child(2),
+.Freq-donor-foot-logos img:nth-child(3) {
+  width: 50px;
+  height: auto;
+}
+
+.donation-request-textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.donation-request-select-container {
+  position: relative;
+}
+
+.donation-request-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  background-size: 15px;
+  padding-right: 40px;
+}
+
+.donation-request-submit-btn {
+  background-color: #1e6668 !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 15px !important;
+  padding: 15px 18px !important;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  width: 200px;
+  transition: all 0.3s ease;
+  margin: 20px auto 0;
+  display: block;
+}
+
+.donation-request-submit-btn:hover {
+  background-color: #3b765a !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.donation-request-submit-btn:active {
+  transform: translateY(0);
+}
+
+.error-message {
+  color: #f44336;
+  font-size: 13px;
+  margin-top: 5px;
+  display: block;
+}
+
+.donation-request-input.error,
+.donation-request-select.error,
+.donation-request-textarea.error {
+  border-color: #f44336;
+  background-color: #fff8f8;
+}
+
+.donation-request-input.error:focus,
+.donation-request-select.error:focus,
+.donation-request-textarea.error:focus {
+  box-shadow: 0 0 0 3px rgba(244, 67, 54, 0.1);
+}
+
+@media (max-width: 768px) {
+  .donation-request-container {
+    padding: 20px;
+  }
+
+  .donation-request-form {
+    padding: 20px;
+  }
+
+  .donation-request-title {
+    font-size: 28px;
+  }
+
+  .donation-request-input,
+  .donation-request-select,
+  .donation-request-textarea {
+    font-size: 14px;
+    padding: 10px 12px;
+  }
+}
+

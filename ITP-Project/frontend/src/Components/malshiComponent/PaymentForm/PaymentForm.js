@@ -1,0 +1,421 @@
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { jsPDF } from 'jspdf';
+import emailjs from 'emailjs-com';
+import './PaymentForm.css';
+
+const PaymentForm = () => {
+  const [step, setStep] = useState(1);
+  const [formData, setFormData] = useState({
+    amount: '',
+    name: '',
+    email: '',
+    phone: '',
+    message: '',
+    paymentMethod: 'dialog',
+    cardNumber: '',
+    cardName: '',
+    expiryDate: '',
+    cvv: '',
+    bankName: '',
+    accountNumber: '',
+    branchCode: ''
+  });
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [isSendingEmail, setIsSendingEmail] = useState(false);
+  const [errors, setErrors] = useState({});
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Initialize EmailJS with your public key
+    emailjs.init("u6ow9c4c8XYvGsyXZ");
+  }, []);
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    let newValue = value;
+    if (name === 'expiryDate') {
+      // Remove all non-digits and non-slash
+      let cleaned = value.replace(/[^0-9/]/g, '').slice(0, 5);
+      // Auto-insert slash after two digits
+      if (cleaned.length === 2 && !cleaned.includes('/')) {
+        cleaned = cleaned + '/';
+      } else if (cleaned.length > 2 && cleaned[2] !== '/') {
+        cleaned = cleaned.slice(0, 2) + '/' + cleaned.slice(2, 5);
+      }
+      newValue = cleaned.toUpperCase();
+    }
+    setFormData(prevState => ({
+      ...prevState,
+      [name]: newValue
+    }));
+  };
+
+  const validateStep = () => {
+    let newErrors = {};
+    if (step === 1) {
+      if (!formData.amount || isNaN(formData.amount) || Number(formData.amount) < 100) {
+        newErrors.amount = 'Please enter or select an amount (minimum Rs. 100).';
+      }
+    } else if (step === 2) {
+      if (!formData.email || !/^\S+@\S+\.\S+$/.test(formData.email)) {
+        newErrors.email = 'Please enter a valid email address.';
+      }
+      if (!formData.phone || !/^\d{10}$/.test(formData.phone)) {
+        newErrors.phone = 'Please enter a valid 10-digit phone number.';
+      }
+    } else if (step === 3) {
+      if (!formData.cardNumber || !/^\d{16}$/.test(formData.cardNumber)) {
+        newErrors.cardNumber = 'Card number must be 16 digits.';
+      }
+      if (!formData.cardName || formData.cardName.length < 2) {
+        newErrors.cardName = 'Name on card is required.';
+      }
+      if (!formData.expiryDate || !/^(0[1-9]|1[0-2])\/([0-9]{2})$/.test(formData.expiryDate)) {
+        newErrors.expiryDate = 'Expiry must be in MM/YY format.';
+      } else {
+        // Check if expiry is in the future
+        const [mm, yy] = formData.expiryDate.split('/');
+        const expDate = new Date(`20${yy}`, mm);
+        const now = new Date();
+        if (expDate < now) {
+          newErrors.expiryDate = 'Expiry date must be in the future.';
+        }
+      }
+      if (!formData.cvv || !/^\d{3}$/.test(formData.cvv)) {
+        newErrors.cvv = 'CVV must be 3 digits.';
+      }
+    }
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const nextStep = () => {
+    if (validateStep()) {
+      setStep(prevStep => prevStep + 1);
+    }
+  };
+
+  const prevStep = () => {
+    setStep(prevStep => prevStep - 1);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('Form submitted, validating step:', step);
+    if (validateStep() && step === 4) {
+      console.log('Validation passed, showing success modal');
+      setShowSuccess(true);
+      setIsSendingEmail(true);
+      sendThankYouEmail();
+      console.log('Form data:', formData);
+    }
+  };
+
+  const handleSavePDF = () => {
+    const doc = new jsPDF();
+    doc.setFont('helvetica', 'italic');
+    doc.setFontSize(26);
+    doc.text('Fund Donation Receipt', 105, 25, { align: 'center' });
+    // Underline
+    const textWidth = doc.getTextWidth('Fund Donation Receipt');
+    doc.setLineWidth(1.2);
+    doc.line(105 - textWidth / 2, 28, 105 + textWidth / 2, 28);
+
+    // Add page border
+    doc.setDrawColor(25, 90, 92);
+    doc.setLineWidth(2);
+    doc.rect(8, 8, 194, 281, 'S');
+
+    doc.setFontSize(14);
+    doc.setFont('helvetica', 'normal');
+    doc.text(`Partnership Email: ${formData.email}`, 20, 45);
+    doc.text(`Partnership Name: ${formData.cardName}`, 20, 55);
+    doc.text(`Donation Amount: Rs. ${formData.amount}`, 20, 65);
+    doc.text(`Card Number: ${formData.cardNumber}`, 20, 75); // or mask as needed
+
+    // Green thank you message, larger and bold
+    doc.setFontSize(18);
+    doc.setFont('helvetica', 'bold');
+    doc.setTextColor(60, 120, 60);
+    doc.text('Thank you for your generous donation to our fund!', 20, 105);
+
+    // Footer at the bottom of the page
+    doc.setTextColor(100);
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(10);
+    const date = new Date();
+    const pageHeight = doc.internal.pageSize.getHeight();
+    doc.text(`Generated by Food Donation Platform`, 105, pageHeight - 18, { align: 'center' });
+    doc.text(`Report generated: ${date.toLocaleString()}`, 105, pageHeight - 12, { align: 'center' });
+
+    doc.save('fund-donation-receipt.pdf');
+  };
+
+  const handleClose = () => {
+    navigate('/rl/dashboard');
+  };
+
+  const sendThankYouEmail = () => {
+    console.log('Starting email sending process...');
+    console.log('Recipient email:', formData.email);
+    console.log('Recipient name:', formData.cardName);
+    console.log('Donation amount:', formData.amount);
+
+    if (!formData.email) {
+      console.error('No email address provided');
+      setIsSendingEmail(false);
+      return;
+    }
+
+    const templateParams = {
+      email: formData.email,
+      name: formData.cardName,
+      price: formData.amount,
+      cost: {
+        total: formData.amount
+      },
+      message: formData.message || 'Thank you for your generous donation. Your support helps us continue our mission of HodaHitha.lk',
+      website: "https://hodahitha.lk"
+    };
+
+    console.log('Sending email with params:', templateParams);
+
+    emailjs.send(
+      'service_44c73ud',
+      'template_iyp7pyl',
+      templateParams,
+      'u6ow9c4c8XYvGsyXZ'
+    )
+    .then((result) => {
+      console.log('Email sent successfully!');
+      console.log('Email sent to:', formData.email);
+      console.log('Response:', result.text);
+      setIsSendingEmail(false);
+    }, (error) => {
+      console.error('Failed to send email');
+      console.error('Error details:', error.text);
+      console.error('Recipient email:', formData.email);
+      console.error('Full error:', error);
+      setIsSendingEmail(false);
+    });
+  };
+
+  const renderStep = () => {
+    switch (step) {
+      case 1:
+        return (
+          <div className="DFund-step">
+            <h2>Select Donation Amount</h2>
+            <div className="DFund-amount-options">
+              <button
+                type="button"
+                className={`DFund-amount-btn ${formData.amount === '500' ? 'selected' : ''}`}
+                onClick={() => setFormData({ ...formData, amount: '500' })}
+              >
+                Rs. 500
+              </button>
+              <button
+                type="button"
+                className={`DFund-amount-btn ${formData.amount === '1000' ? 'selected' : ''}`}
+                onClick={() => setFormData({ ...formData, amount: '1000' })}
+              >
+                Rs. 1,000
+              </button>
+              <button
+                type="button"
+                className={`DFund-amount-btn ${formData.amount === '2000' ? 'selected' : ''}`}
+                onClick={() => setFormData({ ...formData, amount: '2000' })}
+              >
+                Rs. 2,000
+              </button>
+            </div>
+            <div className="DFund-custom-amount">
+              <input
+                type="number"
+                name="amount"
+                placeholder="Custom Amount"
+                value={formData.amount}
+                onChange={handleInputChange}
+                min="100"
+              />
+            </div>
+            {errors.amount && <div className="DFund-error-message">{errors.amount}</div>}
+          </div>
+        );
+
+      case 2:
+        return (
+          <div className="DFund-step">
+            <h2>Personal Information</h2>
+            <div className="DFund-form-group">
+              <input
+                type="email"
+                name="email"
+                placeholder="Email Address"
+                value={formData.email}
+                onChange={handleInputChange}
+                required
+              />
+              {errors.email && <div className="DFund-error-message">{errors.email}</div>}
+            </div>
+            <div className="DFund-form-group">
+              <input
+                type="tel"
+                name="phone"
+                placeholder="Phone Number"
+                value={formData.phone}
+                onChange={handleInputChange}
+                required
+                pattern="[0-9]{10}"
+                maxLength={10}
+              />
+              {errors.phone && <div className="DFund-error-message">{errors.phone}</div>}
+            </div>
+            <div className="DFund-form-group">
+              <textarea
+                name="message"
+                placeholder="Message (Optional)"
+                value={formData.message}
+                onChange={handleInputChange}
+              />
+            </div>
+          </div>
+        );
+
+      case 3:
+        return (
+          <div className="DFund-step">
+            <h2>Card Details</h2>
+            <div className="DFund-card-details">
+              <div className="DFund-form-group">
+                <input
+                  type="text"
+                  name="cardNumber"
+                  placeholder="Card Number"
+                  value={formData.cardNumber}
+                  onChange={handleInputChange}
+                  maxLength="16"
+                  required
+                />
+                {errors.cardNumber && <div className="DFund-error-message">{errors.cardNumber}</div>}
+              </div>
+              <div className="DFund-form-group">
+                <input
+                  type="text"
+                  name="cardName"
+                  placeholder="Name on Card"
+                  value={formData.cardName}
+                  onChange={handleInputChange}
+                  required
+                />
+                {errors.cardName && <div className="DFund-error-message">{errors.cardName}</div>}
+              </div>
+              <div className="DFund-form-row">
+                <div className="DFund-form-group">
+                  <input
+                    type="text"
+                    name="expiryDate"
+                    placeholder="MM/YY"
+                    value={formData.expiryDate}
+                    onChange={handleInputChange}
+                    maxLength="5"
+                    required
+                  />
+                  {errors.expiryDate && <div className="DFund-error-message">{errors.expiryDate}</div>}
+                </div>
+                <div className="DFund-form-group">
+                  <input
+                    type="text"
+                    name="cvv"
+                    placeholder="CVV"
+                    value={formData.cvv}
+                    onChange={handleInputChange}
+                    maxLength="3"
+                    required
+                  />
+                  {errors.cvv && <div className="DFund-error-message">{errors.cvv}</div>}
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+
+      case 4:
+        // No masking, show full card number
+        return (
+          <div className="DFund-step">
+            <h2>Confirm Your Donation</h2>
+            <div className="DFund-confirmation-details">
+              <p>Please confirm your donation details:</p>
+              <ul>
+                <li>Amount: Rs. {formData.amount}</li>
+                <li>Email: {formData.email}</li>
+                <li>Name on Card: {formData.cardName}</li>
+                <li>Card Number: {formData.cardNumber}</li>
+              </ul>
+            </div>
+          </div>
+        );
+
+      default:
+        return null;
+    }
+  };
+
+  return (
+    <div className="DFund-payment-form-container">
+      <div className="DFund-progress-bar">
+        <div className={`DFund-progress-step ${step >= 1 ? 'active' : ''}`}>1</div>
+        <div className={`DFund-progress-step ${step >= 2 ? 'active' : ''}`}>2</div>
+        <div className={`DFund-progress-step ${step >= 3 ? 'active' : ''}`}>3</div>
+        <div className={`DFund-progress-step ${step >= 4 ? 'active' : ''}`}>4</div>
+      </div>
+
+      {step < 4 ? (
+        <>
+          {renderStep()}
+          <div className="DFund-form-navigation">
+            {step > 1 && (
+              <button type="button" onClick={prevStep} className="DFund-btn-prev">
+                Previous
+              </button>
+            )}
+            <button type="button" onClick={nextStep} className="DFund-btn-next">
+              Next
+            </button>
+          </div>
+        </>
+      ) : (
+        <form onSubmit={handleSubmit}>
+          {renderStep()}
+          <div className="DFund-form-navigation">
+            <button type="button" onClick={prevStep} className="DFund-btn-prev">
+              Previous
+            </button>
+            <button type="submit" className="DFund-btn-submit">
+              Complete Payment
+            </button>
+          </div>
+        </form>
+      )}
+
+      {showSuccess && (
+        <div className="DFund-modal-overlay">
+          <div className="DFund-modal-content">
+            <h2>Fund Donation Successful!</h2>
+            <p>Thank you for your generous donation to our fund!</p>
+            {isSendingEmail ? (
+              <p className="DFund-email-status">Sending confirmation email...</p>
+            ) : (
+              <p className="DFund-email-status">Confirmation email has been sent to {formData.email}</p>
+            )}
+            <button className="DFund-btn-close" onClick={handleClose}>Close</button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default PaymentForm;
